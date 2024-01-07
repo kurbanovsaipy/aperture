@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+[inert], [inert] * {opacity: 0.3;}
+
+html,body{
+	max-width: 100%;
+	min-width: 320px;
+	font-size: 100%;
+	font-weight: 400;
+	line-height: 20px;
+	font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+    color: #C0C0C0;
+    background: #000;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;background: transparent}
+button::-moz-focus-inner {padding:0;border:0;background: transparent}
+a, a:visited{text-decoration: none; color: #fff;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: black;
+}
+.os-scrollbar {
+  z-index: 100;
+  --os-track-bg: none;
+  --os-track-bg-hover: none;
+  --os-track-bg-active: none;
+  --os-handle-bg: #fff;
+  --os-handle-bg-hover: #fff;
+  --os-handle-bg-active: #fff;
+  @media screen and (max-width: 768px) {
+      display: none;
+  }
+}
+
+html.hidden {
+  overflow: hidden;
+}
+/*-------------------------*/
+@mixin adaptiveFont($maxFont, $minFont) {
+    $addSize: $maxFont - $minFont;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 768px) {
+        font-size: calc(#{$minFont + px} + #{$addMobSize} * ((100vw - 320px) / 1920));
+    }
+    @media (min-width: 768px) {
+        font-size: calc(#{$minFont + px} + #{$addSize} * (100vw  / 1920));
+    }
+}
+
+@mixin adaptiveProperty($property, $max, $min) {
+    $addSize: $max - $min;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 768px) {
+        #{$property}: calc(#{$min + px} + #{$addMobSize} * ((100vw - 320px) / 1920));
+    }
+    @media (min-width: 768px) {
+        #{$property}: calc(#{$min + px} + #{$addSize} * (100vw  / 1920));
+    }
+}
+
+@mixin mediaMaxWidth($maxScreenWidth) {
+  @media screen and (max-width: #{$maxScreenWidth + px}) {
+      @content;
+  }
+}
+
+@mixin mediaMinWidth($minScreenWidth) {
+  @media screen and (min-width: #{$minScreenWidth + px}) {
+      @content;
+  }
+}
+/*------------------------------------*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?eql3t0');
+    src:  url('../fonts/icomoon.eot?eql3t0#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?eql3t0') format('truetype'),
+      url('../fonts/icomoon.woff?eql3t0') format('woff'),
+      url('../fonts/icomoon.svg?eql3t0#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon_"], [class*=" icon_"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .icon_clock:before {
+    content: "\e901";
+    margin-right: 5px;
+  }
+  .icon_aperture:before {
+    content: "\e902";
+    margin-right: 5px;
+  }
+  .icon_ISO:before {
+    content: "\e903";
+    margin-right: 5px;
+  }
+  .icon_geo:before {
+    content: "\e904";
+    margin-right: 5px;
+  }
+  .icon_Hill_Hayes:before {
+    content: "\e905";
+    color: #fff;
+    @include adaptiveFont(30, 20);
+  }
+  .icon_riksgrasen:before {
+    content: "\e906";
+    color: #fff;
+    @include adaptiveFont(78, 60);
+  }
+  .icon_studio_cai:before {
+    content: "\e907";
+    color: #fff;
+    @include adaptiveFont(20, 16);
+  }
+  .icon_chill:before {
+    content: "\e908";
+    color: #fff;
+    @include adaptiveFont(36, 28);
+  }
+  .icon_stockholm:before {
+    content: "\e909";
+    color: #fff;
+    @include adaptiveFont(32, 26);
+  }
+  .icon_twitter:before {
+    content: "\e90a";
+    color: #fff;
+    font-size: 24px;
+    transition: 0.4s;
+    will-change: transform;
+    &:hover {
+        transform: scale(1.1);
+    }
+  }
+  .icon_instagram:before {
+    content: "\e90b";
+    color: #fff;
+    font-size: 24px;
+    transition: 0.4s;
+    will-change: transform;
+    &:hover {
+        transform: scale(1.1);
+    }
+  }
+  .icon_facebook:before {
+    content: "\e90c";
+    color: #fff;
+    font-size: 24px;
+    transition: 0.4s;
+    will-change: transform;
+    &:hover {
+        transform: scale(1.2);
+    }
+  }
+  .icon_logo:before {
+    content: "\e90d";
+    color: #fff;
+    @include adaptiveFont(31, 25);
+  }
+/*---------------------------------*/  
+
+.container {
+    position: relative;
+    max-width: 1200px;
+    padding: 0 16px;
+    @include adaptiveProperty(padding-top, 100, 50);
+    @include adaptiveProperty(padding-bottom, 100, 50);
+    margin: 0 auto;
+    &.header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 20px;
+    }
+}
+.main_button {
+    position: relative;
+    width: max-content;
+    padding: 10px 10px 10px 42px;
+    background: #fff;
+    border-radius: 14px;
+    font-size: 15px;
+    white-space: nowrap;
+    transition: 0.4s;
+    will-change: transform;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        background: url(/images/objective.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+}
+.title {
+    @include adaptiveFont(40, 30);
+    line-height: 42px;
+}
+.label {
+  position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+.characteristic {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 300px;
+    @include mediaMinWidth(400){
+        align-self: end;
+        justify-content: end;
+    }
+    & span {
+        display: block;
+        font-size: 12px;
+        width: 100%;
+        max-width: max-content;
+    }
+}
+.location_title {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+}
