@@ -332,7 +332,7 @@ html.hidden {
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
-  background: url(/images/objective.svg);
+  background: url(images/objective.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
